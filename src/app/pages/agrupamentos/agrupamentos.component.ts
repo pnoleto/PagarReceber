@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OauthService } from 'src/app/services';
+import { FormBuilder, Validators, FormGroup, FormControl, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-agrupamentos',
@@ -8,8 +8,26 @@ import { OauthService } from 'src/app/services';
 })
 export class AgrupamentosComponent implements OnInit {
 
-  constructor() { }
+  public formAgrupamento: FormGroup;
+  public controls: { [key: string]: AbstractControl; };
 
-  ngOnInit(): void { }
+  constructor(private formBuilder: FormBuilder) { formBuilder }
 
+  public FormBuilderAgrupamento(): void {
+    this.formAgrupamento = this.formBuilder.group({
+      Nome: this.formBuilder.control('', [Validators.required,Validators.pattern('[a-zA-Z ]*'), Validators.maxLength(50)]),
+      Ativo: this.formBuilder.control(false)
+    });
+  }
+
+  public OnSubmit() {
+    alert("ok");
+    console.log(this.formAgrupamento.controls.Nome.errors);
+    
+  }
+
+  ngOnInit(): void {
+    this.FormBuilderAgrupamento();
+    this.controls = this.formAgrupamento.controls;
+  }
 }

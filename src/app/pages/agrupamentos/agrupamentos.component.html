@@ -1,18 +1,39 @@
 <div class="container">
-    <form>
-        <div class="form-group">
-            <label for="inputNome">Nome:</label>
-            <input type="email" class="form-control" id="inputNome" aria-describedby="inputNomeHelp">
-            <small id="inputNomeHelp" class="form-text text-muted">Obrigatorio informar o nome do agrupamento</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="CheckAgrupamentoAtivo">
-            <label class="form-check-label" for="CheckAgrupamentoAtivo">Ativo</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="m-5 p-5">
+        <form [formGroup]="formAgrupamento" (ngSubmit)="OnSubmit()">
+            <div class="form-group col-md-4">
+                <label for="inputCodigo">Código:</label>
+                <input type="text" class="form-control" id="inputCodigo">
+            </div>
+            <div class="form-group col-8 ">
+                <label for="inputNome">Nome:</label>
+                <input [class.is-invalid]="this.controls.Nome.invalid" formControlName="Nome" type="text"
+                    class="form-control" id="inputNome" aria-describedby="inputNomeHelp" required>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <small *ngIf="this.controls.Nome.errors?.required" id="inputNomeHelp" class="text-danger">
+                        Obrigatorio informar o nome do agrupamento.
+                    </small>
+                </div>
+                <div>
+                    <small *ngIf="this.controls.Nome.errors?.maxlength" id="inputNomeHelp" class="text-danger">
+                        O Nome do agrupamento excedeu a quantidade de caracteres.
+                    </small>
+                </div>
+                <div>
+                    <small *ngIf="this.controls.Nome.errors?.pattern" id="inputNomeHelp" class="text-danger">
+                        Caracteres especiais e alfanumericos não são permitidos.
+                    </small>
+                </div>
+            </div>
+            <div class="col-md-2 form-group">
+                <div class="form-check">
+                    <input formControlName="Ativo" type="checkbox" class="form-check-input" id="CheckAgrupamentoAtivo">
+                    <label class="form-check-label" for="CheckAgrupamentoAtivo">Ativo</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
 </div>

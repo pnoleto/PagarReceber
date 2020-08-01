@@ -7,7 +7,7 @@ import { CanActivateService } from './services';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'agrupamentos', component: AgrupamentosComponent, canActivate: [CanActivateService] }
+  { path: 'agrupamentos', component: AgrupamentosComponent, /*canActivate: [CanActivateService]*/ }
 ];
 
 @NgModule({
