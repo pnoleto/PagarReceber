@@ -1,4 +1,6 @@
 <div class="container">
+    <app-breadcrumb class="m-4" [items]="items"></app-breadcrumb>
+    <app-page-title [Title]="Title"></app-page-title>  
     <div class="m-5 p-5">
         <form [formGroup]="formAgrupamento" (ngSubmit)="OnSubmit()">
             <div class="form-group col-md-4">
@@ -32,7 +34,9 @@
                     <input formControlName="Ativo" type="checkbox" class="form-check-input" id="CheckAgrupamentoAtivo">
                     <label class="form-check-label" for="CheckAgrupamentoAtivo">Ativo</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <div class="mt-2">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
             </div>
         </form>
     </div>

@@ -1,0 +1,7 @@
+<nav aria-label="breadcrumb" *ngIf="items">
+    <ol class="breadcrumb">
+        <li *ngFor="let item of items" class="breadcrumb-item">
+            <a [class.text-primary]="item.Ativo" [innerHTML]="item.nome"></a>
+        </li>
+    </ol>
+</nav>

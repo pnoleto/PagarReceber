@@ -7,7 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import {
   HomeComponent, LoginComponent,
-  MenuComponent, AgrupamentosComponent
+  MenuComponent, AgrupamentosComponent, 
+  BreadcrumbComponent, PageTitleComponent
 } from './pages';
 
 import {
@@ -21,8 +22,7 @@ import {
   AmazonLoginProvider,
 } from 'angularx-social-login';
 
-import { OauthService } from './services/Oauth/oauth.service';
-import { CanActivateService } from '../app/services';
+import { CanActivateService, OauthService } from '../app/services';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,9 @@ import { CanActivateService } from '../app/services';
     HomeComponent,
     LoginComponent,
     MenuComponent,
-    AgrupamentosComponent
+    AgrupamentosComponent,
+    BreadcrumbComponent,
+    PageTitleComponent
   ],
   imports: [
     BrowserModule,
