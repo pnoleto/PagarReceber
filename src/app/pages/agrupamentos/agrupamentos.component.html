@@ -1,18 +1,18 @@
 <div class="container">
     <app-breadcrumb class="m-4" [items]="items"></app-breadcrumb>
-    <app-page-title [Title]="Title"></app-page-title>  
+    <app-page-title [Title]="Title"></app-page-title>
     <div class="m-5 p-5">
         <form [formGroup]="formAgrupamento" (ngSubmit)="OnSubmit()">
             <div class="form-group col-md-4">
                 <label for="inputCodigo">Código:</label>
-                <input type="text" class="form-control" id="inputCodigo">
+                <input formControlName="Codigo" type="text" class="form-control" id="inputCodigo" readonly>
             </div>
             <div class="form-group col-8 ">
                 <label for="inputNome">Nome:</label>
                 <input [class.is-invalid]="this.controls.Nome.invalid" formControlName="Nome" type="text"
-                    class="form-control" id="inputNome" aria-describedby="inputNomeHelp" required>
+                    class="form-control" id="inputNome" aria-describedby="inputNomeHelp">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div>
                     <small *ngIf="this.controls.Nome.errors?.required" id="inputNomeHelp" class="text-danger">
                         Obrigatorio informar o nome do agrupamento.
@@ -29,12 +29,17 @@
                     </small>
                 </div>
             </div>
-            <div class="col-md-2 form-group">
+            <div class="form-group col-md-2">
                 <div class="form-check">
                     <input formControlName="Ativo" type="checkbox" class="form-check-input" id="CheckAgrupamentoAtivo">
                     <label class="form-check-label" for="CheckAgrupamentoAtivo">Ativo</label>
                 </div>
-                <div class="mt-2">
+            </div>
+            <div class="form-row mt-2 col-md-6">
+                <div class="form-group">
+                    <button type="reset" class="btn btn-primary">Limpar</button>
+                </div>
+                <div class="form-group col-md-3">
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
