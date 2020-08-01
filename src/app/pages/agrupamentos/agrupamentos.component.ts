@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OauthService } from 'src/app/services';
 
 @Component({
   selector: 'app-agrupamentos',
@@ -9,7 +10,6 @@ export class AgrupamentosComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

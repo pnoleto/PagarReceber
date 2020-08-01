@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OauthService } from '../../services/Oauth/oauth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public constructor(
+    private oauthService: OauthService
+  ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void { }
+
+  public LoginFacebook() {
+    this.oauthService.SignInWithFaceBook();
+  }
+
+  public LoginAmazon() {
+    this.oauthService.SignInWithAmazon();
+  }
+
+  public LoginGoogle() {
+    this.oauthService.SignInWithGoogle();
   }
 
 }
