@@ -4,13 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   LoginComponent, HomeComponent,
   AgrupamentosComponent, CarteirasComponent
-} from '../app/pages/index';
+} from '../app/pages';
 
 import { CanActivateService } from './services';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'agrupamentos', component: AgrupamentosComponent, canActivate: [CanActivateService] },
   { path: 'carteiras', component: CarteirasComponent, canActivate: [CanActivateService] }

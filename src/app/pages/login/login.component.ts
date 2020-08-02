@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
   }
 
   public AbrirPaginaInicial() {
-    this.route.navigate(['home']);
+    this.route.navigate(['']);
   }
 
 }
+
+

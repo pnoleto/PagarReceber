@@ -13,7 +13,10 @@ export class OauthService {
 
   constructor(
     private authService: SocialAuthService
-  ) { }
+  ) {
+    let value: string = sessionStorage.getItem("UserSession");
+    this.user = JSON.parse(value);
+  }
 
   public Authenticated(): boolean {
     return (this.user != null);
@@ -25,20 +28,31 @@ export class OauthService {
 
   public SignInWithGoogle(): Promise<any> {
     return this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then((user) => { this.user = user; })
+      .then((user) => {
+        this.user = user;
+        sessionStorage.setItem("UserSession", JSON.stringify(this.user));
+      })
   }
 
   public SignInWithAmazon(): Promise<any> {
     return this.authService.signIn(AmazonLoginProvider.PROVIDER_ID)
-      .then((user) => { this.user = user; })
+      .then((user) => {
+        this.user = user;
+        sessionStorage.setItem("UserSession", JSON.stringify(this.user));
+      })
   }
 
   public SignInWithFaceBook(): Promise<any> {
     return this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
-      .then((user) => { this.user = user; })
+      .then((user) => {
+        this.user = user;
+        this.user.response = null;
+        sessionStorage.setItem("UserSession", JSON.stringify(this.user));
+      })
   }
 
   public LogOut(): Promise<any> {
+    sessionStorage.clear();
     return this.authService.signOut();
   }
 
