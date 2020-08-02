@@ -2,7 +2,7 @@
     <app-breadcrumb class="m-4" [items]="items"></app-breadcrumb>
     <app-page-title [Title]="Title"></app-page-title>
     <div class="m-5 p-5">
-        <form [formGroup]="formAgroupamento" (ngSubmit)="OnSubmit()">
+        <form [formGroup]="formAgroupCarteira" (ngSubmit)="OnSubmit()">
             <div class="form-group col-md-4">
                 <label for="inputCodigo">Código:</label>
                 <input formControlName="Codigo" type="text" class="form-control" id="inputCodigo" readonly>
@@ -15,12 +15,12 @@
             <div class="col-md-6">
                 <div>
                     <small *ngIf="this.controls.Nome.errors?.required" id="inputNomeHelp" class="text-danger">
-                        Obrigatorio informar o nome do agrupamento.
+                        Obrigatorio informar o nome do carteira.
                     </small>
                 </div>
                 <div>
                     <small *ngIf="this.controls.Nome.errors?.maxlength" id="inputNomeHelp" class="text-danger">
-                        O Nome do agrupamento excedeu a quantidade de caracteres.
+                        O Nome do carteira excedeu a quantidade de caracteres.
                     </small>
                 </div>
                 <div>

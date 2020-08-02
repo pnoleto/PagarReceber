@@ -23,23 +23,23 @@ export class OauthService {
     return this.user;
   }
 
-  public SignInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then((user) => { this.user = user; });
+  public SignInWithGoogle(): Promise<any> {
+    return this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then((user) => { this.user = user; })
   }
 
-  public SignInWithAmazon(): void {
-    this.authService.signIn(AmazonLoginProvider.PROVIDER_ID)
-      .then((user) => { this.user = user; });
+  public SignInWithAmazon(): Promise<any> {
+    return this.authService.signIn(AmazonLoginProvider.PROVIDER_ID)
+      .then((user) => { this.user = user; })
   }
 
-  public SignInWithFaceBook(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
-      .then((user) => { this.user = user; });
+  public SignInWithFaceBook(): Promise<any> {
+    return this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
+      .then((user) => { this.user = user; })
   }
 
-  public LogOut(): void {
-    this.authService.signOut();
+  public LogOut(): Promise<any> {
+    return this.authService.signOut();
   }
 
 }
