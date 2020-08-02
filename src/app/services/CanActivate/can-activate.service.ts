@@ -14,7 +14,7 @@ export class CanActivateService implements CanActivate {
 
   public canActivate(): boolean {
     let canActive: boolean = this.oauthService.Authenticated();
-    
+
     if (!canActive)
       this.router.navigate(['login']);
 

@@ -9,7 +9,7 @@ import { BreadCrumbItem, Agrupamento } from '../../Classes';
 })
 export class AgrupamentosComponent implements OnInit {
 
-  public formAgrupamento: FormGroup;
+  public formAgroupamento: FormGroup;
   public controls: { [key: string]: AbstractControl; };
   public Title: string = 'Cadastro de agrupamentos';
   public items: BreadCrumbItem[] = [
@@ -23,7 +23,7 @@ export class AgrupamentosComponent implements OnInit {
   ) { }
 
   public FormBuilderAgrupamento(): void {
-    this.formAgrupamento = this.formBuilder.group({
+    this.formAgroupamento = this.formBuilder.group({
       Codigo: this.formBuilder.control(0),
       Nome: this.formBuilder.control('',
         [Validators.required,
@@ -35,7 +35,7 @@ export class AgrupamentosComponent implements OnInit {
   }
 
   public OnSubmit() {
-    if (this.formAgrupamento.valid)
+    if (this.formAgroupamento.valid)
       console.log(this.ObtemAgrupamento());
   }
 
@@ -54,7 +54,7 @@ export class AgrupamentosComponent implements OnInit {
 
   ngOnInit(): void {
     this.FormBuilderAgrupamento();
-    this.controls = this.formAgrupamento.controls;
+    this.controls = this.formAgroupamento.controls;
 
     this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento', Ativo: true })
   }

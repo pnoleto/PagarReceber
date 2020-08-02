@@ -10,3 +10,5 @@ export * from  './components/breadcrumb/breadcrumb.component';
 //export * from  './components/breadcrumb/breadcrumb.component.spec';
 export * from  './components/pageTitle/page-title.component';
 //export * from  './components/pageTitle/page-title.component.spec';
+export * from  './carteiras/carteiras.component';
+//export * from  './carteiras/carteiras.component.spec';

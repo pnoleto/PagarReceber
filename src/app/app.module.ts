@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {
   HomeComponent, LoginComponent,
   MenuComponent, AgrupamentosComponent,
-  BreadcrumbComponent, PageTitleComponent
+  BreadcrumbComponent, PageTitleComponent, CarteirasComponent
 } from './pages';
 
 import {
@@ -35,7 +35,8 @@ import {
     MenuComponent,
     AgrupamentosComponent,
     BreadcrumbComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    CarteirasComponent
   ],
   imports: [
     BrowserModule,
