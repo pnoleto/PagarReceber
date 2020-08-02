@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {
   LoginComponent, HomeComponent,
-  AgrupamentosComponent, CarteirasComponent
+  AgrupamentosComponent, CarteirasComponent, MovimentacoesComponent
 } from '../app/pages';
 
 import { CanActivateService } from './services';
@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'agrupamentos', component: AgrupamentosComponent, canActivate: [CanActivateService] },
-  { path: 'carteiras', component: CarteirasComponent, canActivate: [CanActivateService] }
+  { path: 'carteiras', component: CarteirasComponent, canActivate: [CanActivateService] },
+  { path: 'movimentacoes', component: MovimentacoesComponent, canActivate: [CanActivateService] }
 ];
 
 @NgModule({

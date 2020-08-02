@@ -12,3 +12,7 @@ export * from  './components/pageTitle/page-title.component';
 //export * from  './components/pageTitle/page-title.component.spec';
 export * from  './carteiras/carteiras.component';
 //export * from  './carteiras/carteiras.component.spec';
+export * from './Dashboard/deashboard/deashboard.component';
+//export * from './Dashboard/deashboard/deashboard.component.spec';
+export * from './movimentacoes/movimentacoes.component';
+//export * from './movimentacoes/movimentacoes.component.spec';
