@@ -9,7 +9,7 @@ import { BreadCrumbItem, Carteira } from '../../Classes';
 })
 export class MovimentacoesComponent implements OnInit {
 
-  public formAgroupCarteira: FormGroup;
+  public formAgroupMovimentacao: FormGroup;
   public controls: { [key: string]: AbstractControl; };
   public Title: string = 'Cadastro de Movimentações';
   public items: BreadCrumbItem[] = [
@@ -22,8 +22,8 @@ export class MovimentacoesComponent implements OnInit {
   ) { }
 
   public OnSubmit() {
-    if (this.formAgroupCarteira.valid)
-      console.log(this.ObtemAgrupamento());
+    if (this.formAgroupMovimentacao.valid)
+      console.log(this.ObtemMovimentacao());
   }
 
   public PreencherCampos(agrupamento: Carteira) {
@@ -32,15 +32,15 @@ export class MovimentacoesComponent implements OnInit {
     this.controls.Ativo.setValue(agrupamento.Ativo);
   }
 
-  public ObtemAgrupamento(): Carteira {
+  public ObtemMovimentacao(): Carteira {
     let agrupamento = new Carteira();
     agrupamento.Nome = this.controls.Nome.value;
     agrupamento.Ativo = this.controls.Ativo.value;
     return agrupamento;
   }
 
-  public FormBuilderCarteira(): void {
-    this.formAgroupCarteira = this.formBuilder.group({
+  public FormBuilderMovimentacao(): void {
+    this.formAgroupMovimentacao = this.formBuilder.group({
       Codigo: this.formBuilder.control(0),
       Nome: this.formBuilder.control('',
         [Validators.required,
@@ -52,8 +52,8 @@ export class MovimentacoesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.FormBuilderCarteira();
-    this.controls = this.formAgroupCarteira.controls;
+    this.FormBuilderMovimentacao();
+    this.controls = this.formAgroupMovimentacao.controls;
 
     this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento', Ativo: true })
   }

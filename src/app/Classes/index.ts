@@ -1,3 +1,4 @@
-export * from '../Classes/Breadcrumb/bread-crumb-item';
-export * from '../Classes/Agrupamento/agrupamento';
-export * from '../Classes/Carteira/carteira';
+export * from '../classes/breadcrumb/bread-crumb-item';
+export * from '../classes/agrupamento/agrupamento';
+export * from '../classes/carteira/carteira';
+export * from '../classes/movimentacao/movimentacao';
