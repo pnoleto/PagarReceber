@@ -3,3 +3,4 @@ export * from './ibase-api';
 export * from './icarteira-api';
 export * from './icrud-api';
 export * from './imovimentacao-api';
+export * from './ioauth';

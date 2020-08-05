@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BreadCrumbItem, Movimentacao } from '../../Classes';
 import DataSource from "devextreme/data/data_source";
+import { BreadCrumbItem, Movimentacao } from '../../classes';
 
 @Component({
   selector: 'app-movimentacoes',

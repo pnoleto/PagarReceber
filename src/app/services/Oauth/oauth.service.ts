@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
+import { IOauth } from '../../domain/interfaces';
 import {
   SocialAuthService, GoogleLoginProvider,
   AmazonLoginProvider, FacebookLoginProvider, SocialUser
 } from 'angularx-social-login';
+import { UserInfo } from '../../classes';
 
 @Injectable({
   providedIn: 'root',
 })
-export class OauthService {
+export class OauthService implements IOauth {
 
   private user: SocialUser;
 
@@ -22,7 +24,7 @@ export class OauthService {
     return (this.user != null);
   }
 
-  public GetUserInfo(): SocialUser {
+  public GetUserInfo(): UserInfo {
     return this.user;
   }
 

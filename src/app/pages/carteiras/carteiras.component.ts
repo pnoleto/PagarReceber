@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { BreadCrumbItem, Carteira } from 'src/app/Classes';
+import { BreadCrumbItem, Carteira } from '../../classes';
 
 @Component({
   selector: 'app-carteiras',

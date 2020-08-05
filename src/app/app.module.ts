@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DevExtremeModule } from 'devextreme-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   HomeComponent, LoginComponent,
@@ -29,8 +30,6 @@ import {
   CanActivateService,
   OauthService
 } from '../app/services';
-
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

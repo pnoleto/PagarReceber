@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ICrudApi, IBaseApi } from '../../interfaces';
 import { Observable } from 'rxjs';
-import { ServiceBaseApiService } from '..';
+import { ServiceBaseApiService } from '../../domain/services';
+import { ICrudApi, IBaseApi } from '../../domain/interfaces';
 
 @Injectable({
     providedIn: 'root'

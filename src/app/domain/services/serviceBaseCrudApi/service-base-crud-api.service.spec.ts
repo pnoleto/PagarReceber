@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ServiceBaseCrudApiService } from './ServiceBaseCrudApiService';
+import { ServiceBaseCrudApiService } from './service-base-crud-api.service';
 
 describe('ServiceBaseCrudApiService', () => {
   let service: ServiceBaseCrudApiService;

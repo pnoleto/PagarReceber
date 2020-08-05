@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { BreadCrumbItem, Agrupamento } from '../../Classes';
+import { BreadCrumbItem, Agrupamento } from '../../classes';
 
 @Component({
   selector: 'app-agrupamentos',
