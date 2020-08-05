@@ -56,6 +56,6 @@ export class AgrupamentosComponent implements OnInit {
     this.FormBuilderAgrupamento();
     this.controls = this.formAgroupamento.controls;
 
-    this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento', Ativo: true })
+    this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento',InseridoEm:new Date, Ativo: true })
   }
 }

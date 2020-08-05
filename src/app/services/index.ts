@@ -1,2 +1,2 @@
-export * from '../../app/services/Oauth/oauth.service';
-export * from '../../app/services/CanActivate/can-activate.service';
+export * from './Oauth/oauth.service';
+export * from './CanActivate/can-activate.service';

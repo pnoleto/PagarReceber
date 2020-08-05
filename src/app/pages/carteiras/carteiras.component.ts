@@ -56,7 +56,7 @@ export class CarteirasComponent implements OnInit {
     this.FormBuilderCarteira();
     this.controls = this.formAgroupCarteira.controls;
 
-    this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento', Ativo: true })
+    this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento', InseridoEm:new Date, Ativo: true })
   }
 
 }
