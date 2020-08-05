@@ -30,6 +30,8 @@ import {
   OauthService
 } from '../app/services';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,8 @@ import {
     AppRoutingModule,
     SocialLoginModule,
     ReactiveFormsModule,
-    DevExtremeModule
+    DevExtremeModule,
+    HttpClientModule
   ],
   providers: [
     OauthService,
