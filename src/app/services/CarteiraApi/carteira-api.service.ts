@@ -1,30 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ServiceBaseApiService } from '../../domain/services';
-import { ICrudApi, IBaseApi } from '../../domain/interfaces';
+import { ICarteiraApi } from '../../domain/interfaces';
+import { BasePagination, Carteira, BaseDTO, ServiceBaseCrudApiService } from '../../domain';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CarteiraApiService extends ServiceBaseApiService implements ICrudApi, IBaseApi {
+export class CarteiraApiService implements ICarteiraApi {
 
-  constructor() {
-    super();
+  constructor(
+    private serviceBase: ServiceBaseCrudApiService
+  ) {
+    this.serviceBase.Init(environment.EndPoints.Carteiras);
   }
 
-  public List<TTEntity, TTEntityFilter>(Entidade: TTEntityFilter): Observable<TTEntity> {
-    throw new Error("Method not implemented.");
+  public ListCarteira(Entidade: BasePagination<Carteira>): Promise<BaseDTO<Carteira>> {
+    return this.serviceBase.List<Carteira, Carteira>(Entidade).toPromise();
   }
 
-  public Insert<TTEntity>(Entidade: TTEntity): Observable<TTEntity> {
-    throw new Error("Method not implemented.");
+  public InsertCarteira(Entidade: Carteira): Promise<BaseDTO<Carteira>> {
+    return this.serviceBase.Insert<Carteira>(Entidade).toPromise();
   }
 
-  public Update<TTEntity>(Entidade: TTEntity): Observable<TTEntity> {
-    throw new Error("Method not implemented.");
+  public UpdateCarteira(Entidade: Carteira): Promise<BaseDTO<Carteira>> {
+    return this.serviceBase.Update<Carteira>(Entidade).toPromise();
   }
 
-  public Delete<TTEntity>(Entidade: TTEntity): Observable<TTEntity> {
-    throw new Error("Method not implemented.");
+  public DeleteCarteira(Entidade: Carteira): Promise<BaseDTO<Carteira>> {
+    return this.serviceBase.Delete<Carteira>(Entidade).toPromise();
   }
+
 }

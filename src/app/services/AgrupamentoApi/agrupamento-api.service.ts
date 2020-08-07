@@ -1,30 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ServiceBaseApiService } from '../../domain/services';
-import { ICrudApi, IBaseApi } from '../../domain/interfaces';
+import { IAgrupamentoApi } from '../../domain/interfaces';
+import { environment } from '../../../environments/environment';
+import { BasePagination, ServiceBaseCrudApiService, Agrupamento, BaseDTO } from '../../domain';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
+    deps:[ServiceBaseCrudApiService]
 })
-export class AgrupamentoApiService extends ServiceBaseApiService implements ICrudApi, IBaseApi {
+export class AgrupamentoApiService implements IAgrupamentoApi {
 
-    constructor() {
-        super();
-    }
-
-    public List<TTEntity, TTEntityFilter>(Entidade: TTEntityFilter): Observable<TTEntity> {
-        throw new Error("Method not implemented.");
-    }
-
-    public Insert<TTEntity>(Entidade: TTEntity): Observable<TTEntity> {
-        throw new Error("Method not implemented.");
-    }
-
-    public Update<TTEntity>(Entidade: TTEntity): Observable<TTEntity> {
-        throw new Error("Method not implemented.");
-    }
-
-    public Delete<TTEntity>(Entidade: TTEntity): Observable<TTEntity> {
-        throw new Error("Method not implemented.");
-    }
+    constructor(
+        private serviceBase: ServiceBaseCrudApiService
+      ) {
+        this.serviceBase.Init(environment.EndPoints.Agrupamentos);
+      }
+    
+      public ListAgrupamento(Entidade: BasePagination<Agrupamento>): Promise<BaseDTO<Agrupamento>> {
+        return this.serviceBase.List<Agrupamento, Agrupamento>(Entidade).toPromise();
+      }
+    
+      public InsertAgrupamento(Entidade: Agrupamento): Promise<BaseDTO<Agrupamento>> {
+        return this.serviceBase.Insert<Agrupamento>(Entidade).toPromise();
+      }
+    
+      public UpdateAgrupamento(Entidade: Agrupamento): Promise<BaseDTO<Agrupamento>> {
+        return this.serviceBase.Update<Agrupamento>(Entidade).toPromise();
+      }
+    
+      public DeleteAgrupamento(Entidade: Agrupamento): Promise<BaseDTO<Agrupamento>> {
+        return this.serviceBase.Delete<Agrupamento>(Entidade).toPromise();
+      }
 }

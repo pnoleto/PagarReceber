@@ -1,7 +1,7 @@
-import { Base } from './base';
+import { EntityBase } from './base';
 
 describe('Base', () => {
   it('should create an instance', () => {
-    expect(new Base()).toBeTruthy();
+    expect(new EntityBase()).toBeTruthy();
   });
 });

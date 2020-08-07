@@ -1,6 +1,6 @@
-import { Base } from '../base/base';
+import { EntityBase } from '../base/base';
 
-export class Carteira extends Base {
+export class Carteira extends EntityBase {
     Nome: string;
     Ativo: boolean;
 }

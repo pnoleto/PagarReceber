@@ -12,7 +12,7 @@ import {
   MenuComponent, AgrupamentosComponent,
   BreadcrumbComponent, PageTitleComponent,
   CarteirasComponent, DeashboardComponent,
-  MovimentacoesComponent
+  MovimentosComponent
 } from './pages';
 
 import {
@@ -30,6 +30,7 @@ import {
   CanActivateService,
   OauthService
 } from '../app/services';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import {
     PageTitleComponent,
     CarteirasComponent,
     DeashboardComponent,
-    MovimentacoesComponent
+    MovimentosComponent
   ],
   imports: [
     BrowserModule,
@@ -55,14 +56,13 @@ import {
   providers: [
     OauthService,
     CanActivateService,
-    
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
         providers: [
           {
-            id: FacebookLoginProvider.PROVIDER_ID, provider: new FacebookLoginProvider('912546562568332'),
+            id: FacebookLoginProvider.PROVIDER_ID, provider: new FacebookLoginProvider(environment.LoginOptions.FacebookID),
           },
           /*{
             id: GoogleLoginProvider.PROVIDER_ID, provider: new GoogleLoginProvider('clientId'),

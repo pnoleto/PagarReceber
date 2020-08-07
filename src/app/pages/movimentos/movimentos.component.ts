@@ -1,34 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import DataSource from "devextreme/data/data_source";
-import { BreadCrumbItem, Movimentacao } from '../../classes';
+import { BreadCrumbItem, Movimento, BasePagination } from '../../classes';
+import { MovimentosApiService } from '../../services';
 
 @Component({
-  selector: 'app-movimentacoes',
-  templateUrl: './movimentacoes.component.html',
-  styleUrls: ['./movimentacoes.component.scss'],
+  selector: 'app-movimentos',
+  templateUrl: './movimentos.component.html',
+  styleUrls: ['./movimentos.component.scss'],
 })
-export class MovimentacoesComponent implements OnInit {
+export class MovimentosComponent implements OnInit {
 
   public dtMovimentacao: DataSource;
   public formAgroupMovimentacao: FormGroup;
   public controls: { [key: string]: AbstractControl; };
-  public Title: string = 'Movimentações';
+  public Title: string = 'Cadastrar Movimentações';
   public items: BreadCrumbItem[] = [
     { nome: 'Home', Ativo: false },
+    { nome: 'Cadastro', Ativo: false },
     { nome: 'Movimentações', Ativo: true }
   ]
 
   constructor(
-    private formBuilder: FormBuilder
-  ) { }
+    private formBuilder: FormBuilder,
+    private movimentosApi: MovimentosApiService
+  ) {
+    var item = new BasePagination<Movimento>();
+    item.filterOptions = new Movimento();
+    item.filterOptions.Codigo = 4;
+    item.skip = 70;
+    item.take = 1;
+    this.movimentosApi.ListMovimento(item);
+  }
 
   public OnSubmit() {
     if (this.formAgroupMovimentacao.valid)
       console.log(this.ObtemMovimentacao());
   }
 
-  public PreencherCampos(movimentacao: Movimentacao) {
+  public PreencherCampos(movimentacao: Movimento) {
     this.controls.Codigo.setValue(movimentacao.Codigo);
     this.controls.CodAgrupamento.setValue(movimentacao.CodAgrupamento);
     this.controls.CodCarteira.setValue(movimentacao.CodigoCarteira);
@@ -38,8 +48,8 @@ export class MovimentacoesComponent implements OnInit {
     this.controls.Pago.setValue(movimentacao.Pago);
   }
 
-  public ObtemMovimentacao(): Movimentacao {
-    let movimentacao = new Movimentacao();
+  public ObtemMovimentacao(): Movimento {
+    let movimentacao = new Movimento();
     movimentacao.Codigo = this.controls.Codigo.value;
     movimentacao.CodAgrupamento = this.controls.CodAgrupamento.value;
     movimentacao.CodigoCarteira = this.controls.CodigoCarteira.value;
@@ -75,7 +85,7 @@ export class MovimentacoesComponent implements OnInit {
       CodAgrupamento: 0,
       DataMovimentacao: new Date(),
       Descricao: 'teste de preenchimento',
-      InseridoEm :new Date,
+      InseridoEm: new Date,
       Valor: 0.0,
       Pago: true
     })

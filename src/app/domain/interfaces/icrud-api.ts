@@ -1,8 +1,9 @@
 import { Observable } from 'rxjs';
+import { BaseDTO, EntityBase, BasePagination } from '../classes';
 
 export interface ICrudApi {
-    List<TTEntity, TTEntityFilter>(Entidade: TTEntityFilter): Observable<TTEntity>;
-    Insert<TTEntity>(Entidade: TTEntity): Observable<TTEntity>;
-    Update<TTEntity>(Entidade: TTEntity): Observable<TTEntity>;
-    Delete<TTEntity>(Entidade: TTEntity): Observable<TTEntity>;
+    List<TTEntity, TEntityFilter>(params: BasePagination<TEntityFilter>): Observable<BaseDTO<TTEntity>>
+    Insert<TTEntity>(Entidade: EntityBase): Observable<BaseDTO<TTEntity>>;
+    Update<TTEntity>(Entidade: EntityBase): Observable<BaseDTO<TTEntity>>;
+    Delete<TTEntity>(Entidade: EntityBase): Observable<BaseDTO<TTEntity>>;
 }

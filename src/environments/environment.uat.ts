@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   EndPoints: {
     Movimentos: 'HTTP://LOCALHOST:4444',
     Agrupamentos: 'HTTP://LOCALHOST:4444'
