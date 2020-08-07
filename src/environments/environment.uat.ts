@@ -9,5 +9,8 @@ export const environment = {
   RequestOptions: {
     TimeOut: 3000,
     Retry: 2
+  },
+  LoginOptions: {
+    FacebookID: '912546562568332'
   }
 };

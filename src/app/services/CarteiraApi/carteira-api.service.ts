@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ICarteiraApi } from '../../domain/interfaces';
-import { BasePagination, Carteira, BaseDTO, ServiceBaseCrudApiService } from '../../domain';
+import {
+  BasePagination, Carteira, BaseDTO,
+  ServiceBaseCrudApiService, ICarteiraApi
+} from '../../domain';
 import { environment } from '../../../environments/environment';
 
 @Injectable({

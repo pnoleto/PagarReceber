@@ -5,12 +5,13 @@
         <form [formGroup]="formAgroupamento" (ngSubmit)="OnSubmit()">
             <div class="form-group col-md-4">
                 <label for="inputCodigo">Código:</label>
-                <input formControlName="Codigo" type="text" class="form-control" id="inputCodigo" readonly>
+                <dx-text-box formControlName="Codigo" [readOnly]="true" placeholder="" readonly>
+                </dx-text-box>
             </div>
             <div class="form-group col-8 ">
                 <label for="inputNome">Nome:</label>
-                <input [class.is-invalid]="this.controls.Nome.invalid" formControlName="Nome" type="text"
-                    class="form-control" id="inputNome" aria-describedby="inputNomeHelp">
+                <dx-text-box formControlName="Nome" placeholder="">
+                </dx-text-box>
             </div>
             <div class="col-md-6">
                 <div>
@@ -29,11 +30,9 @@
                     </small>
                 </div>
             </div>
-            <div class="form-group col-md-2">
-                <div class="form-check">
-                    <input formControlName="Ativo" type="checkbox" class="form-check-input" id="CheckAgrupamentoAtivo">
-                    <label class="form-check-label" for="CheckAgrupamentoAtivo">Ativo</label>
-                </div>
+            <div class="form-group form-row m-3">
+                <dx-check-box formControlName="Ativo"></dx-check-box>
+                <div class="ml-2"><label class="form-check-label" for="CheckAgrupamentoAtivo">Ativo</label></div>
             </div>
             <div class="form-row mt-2 col-md-6">
                 <div class="form-group">

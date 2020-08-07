@@ -45,7 +45,7 @@ export class ServiceBaseCrudApiService implements ICrudApi, IBaseApi {
             .pipe(
                 retry(this.retry),
                 timeout(this.timeout),
-                catchError((error) => { throw new error })
+                catchError((error) => { throw error })
             );
     }
 

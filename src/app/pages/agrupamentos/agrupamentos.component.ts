@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { BreadCrumbItem, Agrupamento } from '../../classes';
+import { AgrupamentoApiService } from '../../services';
 
 @Component({
   selector: 'app-agrupamentos',
   templateUrl: './agrupamentos.component.html',
-  styleUrls: ['./agrupamentos.component.scss']
+  styleUrls: ['./agrupamentos.component.scss'],
+  providers: [Agrupamento]
 })
 export class AgrupamentosComponent implements OnInit {
 
@@ -19,7 +21,9 @@ export class AgrupamentosComponent implements OnInit {
   ]
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private agrupamento: Agrupamento,
+    private agrupamentosAPI: AgrupamentoApiService
   ) { }
 
   public FormBuilderAgrupamento(): void {
@@ -34,9 +38,33 @@ export class AgrupamentosComponent implements OnInit {
     });
   }
 
+  public async CadastraAgrupamento() {
+    try {
+      const retorno = await this.agrupamentosAPI.InsertAgrupamento(this.ObtemAgrupamento());
+      alert(retorno.message);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  public async AtualizaAgrupamento() {
+    try {
+      const retorno = await this.agrupamentosAPI.UpdateAgrupamento(this.ObtemAgrupamento());
+      alert(retorno.message);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+
+
   public OnSubmit() {
-    if (this.formAgroupamento.valid)
-      console.log(this.ObtemAgrupamento());
+    if (this.formAgroupamento.valid) {
+      if (this.agrupamento.Codigo > 0)
+        this.AtualizaAgrupamento();
+      else
+        this.CadastraAgrupamento();
+    }
   }
 
   public PreencherCampos(agrupamento: Agrupamento) {
@@ -56,6 +84,6 @@ export class AgrupamentosComponent implements OnInit {
     this.FormBuilderAgrupamento();
     this.controls = this.formAgroupamento.controls;
 
-    this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento',InseridoEm:new Date, Ativo: true })
+    this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento', InseridoEm: new Date, Ativo: true })
   }
 }

@@ -12,11 +12,11 @@ export class CanActivateService implements CanActivate {
     private router: Router
   ) { }
 
-  public canActivate(): boolean {
+  public async canActivate(): Promise<boolean> {
     let canActive: boolean = this.oauthService.Authenticated();
 
     if (!canActive)
-      this.router.navigate(['login']);
+       await this.router.navigate(['login']);
 
     return canActive;
   }

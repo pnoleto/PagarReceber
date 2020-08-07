@@ -12,7 +12,8 @@ import {
   MenuComponent, AgrupamentosComponent,
   BreadcrumbComponent, PageTitleComponent,
   CarteirasComponent, DeashboardComponent,
-  MovimentosComponent
+  MovimentosComponent,
+  MovimentacoesComponent
 } from './pages';
 
 import {
@@ -43,7 +44,8 @@ import { environment } from '../environments/environment';
     PageTitleComponent,
     CarteirasComponent,
     DeashboardComponent,
-    MovimentosComponent
+    MovimentosComponent,
+    MovimentacoesComponent
   ],
   imports: [
     BrowserModule,

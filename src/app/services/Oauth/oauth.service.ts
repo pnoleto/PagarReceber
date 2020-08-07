@@ -11,13 +11,12 @@ import { UserInfo } from '../../classes';
 })
 export class OauthService implements IOauth {
 
-  private user: SocialUser;
+  private user: UserInfo;
 
   constructor(
     private authService: SocialAuthService
   ) {
-    let value: string = sessionStorage.getItem("UserSession");
-    this.user = JSON.parse(value);
+    this.user = JSON.parse(sessionStorage.getItem("UserSession"));
   }
 
   public Authenticated(): boolean {
@@ -28,34 +27,34 @@ export class OauthService implements IOauth {
     return this.user;
   }
 
-  public SignInWithGoogle(): Promise<any> {
-    return this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then((user) => {
-        this.user = user;
-        sessionStorage.setItem("UserSession", JSON.stringify(this.user));
-      })
+  public async SignInWithGoogle(): Promise<SocialUser> {
+    const user = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    sessionStorage.setItem("UserSession", JSON.stringify(user));
+    this.user = user;
+
+    return user;
   }
 
-  public SignInWithAmazon(): Promise<any> {
-    return this.authService.signIn(AmazonLoginProvider.PROVIDER_ID)
-      .then((user) => {
-        this.user = user;
-        sessionStorage.setItem("UserSession", JSON.stringify(this.user));
-      })
+  public async SignInWithAmazon(): Promise<any> {
+    const user = await this.authService.signIn(AmazonLoginProvider.PROVIDER_ID);
+    sessionStorage.setItem("UserSession", JSON.stringify(user));
+    this.user = user;
+
+    return user;
   }
 
-  public SignInWithFaceBook(): Promise<any> {
-    return this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
-      .then((user) => {
-        this.user = user;
-        this.user.response = null;
-        sessionStorage.setItem("UserSession", JSON.stringify(this.user));
-      })
+  public async SignInWithFaceBook(): Promise<any> {
+    const user = await this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    sessionStorage.setItem("UserSession", JSON.stringify(user));
+    this.user = user;
+
+    return user;
   }
 
-  public LogOut(): Promise<any> {
+  public async LogOut(): Promise<any> {
+    const logOutInfo = await this.authService.signOut();
     sessionStorage.clear();
-    return this.authService.signOut();
+    return logOutInfo;
   }
 
 }

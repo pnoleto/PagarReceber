@@ -10,4 +10,6 @@ export * from './dashboard/deashboard/deashboard.component';
 //export * from './Dashboard/deashboard/deashboard.component.spec';
 export * from './movimentos/movimentos.component';
 //export * from './movimentacoes/movimentacoes.component.spec';
+export * from './movimentacoes/movimentacoes.component';
+//export * from './movimentacoes/movimentacoes.component.spec';
 export * from './components';
