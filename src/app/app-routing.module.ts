@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {
   LoginComponent, HomeComponent,
-  AgrupamentosComponent, CarteirasComponent, MovimentacoesComponent
+  AgrupamentosComponent, CarteirasComponent,
+  MovimentacoesComponent
 } from '../app/pages';
 
 import { CanActivateService } from './services';
