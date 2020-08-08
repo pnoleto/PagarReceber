@@ -32,6 +32,7 @@ import {
   OauthService
 } from '../app/services';
 import { environment } from '../environments/environment';
+import { LoadingComponent } from './pages/components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { environment } from '../environments/environment';
     CarteirasComponent,
     DeashboardComponent,
     MovimentosComponent,
-    MovimentacoesComponent
+    MovimentacoesComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

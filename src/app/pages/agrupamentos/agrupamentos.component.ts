@@ -11,6 +11,7 @@ import { AgrupamentoApiService } from '../../services';
 })
 export class AgrupamentosComponent implements OnInit {
 
+  public loading: boolean = false;
   public formAgroupamento: FormGroup;
   public controls: { [key: string]: AbstractControl; };
   public Title: string = 'Cadastro de agrupamentos';
@@ -38,32 +39,26 @@ export class AgrupamentosComponent implements OnInit {
     });
   }
 
-  public async CadastraAgrupamento() {
+  public async OnSubmit() {
     try {
-      const retorno = await this.agrupamentosAPI.InsertAgrupamento(this.ObtemAgrupamento());
-      alert(retorno.message);
-    } catch (error) {
+      this.loading = true;
+      let mensagem: string;
+
+      if (this.formAgroupamento.valid && this.agrupamento.Codigo > 0) {
+        let request = await this.agrupamentosAPI.UpdateAgrupamento(this.agrupamento);
+        mensagem = request.message;
+      } else {
+        let request = await this.agrupamentosAPI.InsertAgrupamento(this.agrupamento);
+        mensagem = request.message;
+      }
+
+      alert(mensagem);
+    }
+    catch (error) {
       alert(error);
     }
-  }
-
-  public async AtualizaAgrupamento() {
-    try {
-      const retorno = await this.agrupamentosAPI.UpdateAgrupamento(this.ObtemAgrupamento());
-      alert(retorno.message);
-    } catch (error) {
-      alert(error);
-    }
-  }
-
-
-
-  public OnSubmit() {
-    if (this.formAgroupamento.valid) {
-      if (this.agrupamento.Codigo > 0)
-        this.AtualizaAgrupamento();
-      else
-        this.CadastraAgrupamento();
+    finally {
+      this.loading = false;
     }
   }
 

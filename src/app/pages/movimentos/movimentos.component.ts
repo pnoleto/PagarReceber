@@ -11,6 +11,8 @@ import { MovimentosApiService } from '../../services';
 })
 export class MovimentosComponent implements OnInit {
 
+  public loading: boolean = false;
+  public movimentos: boolean = false;
   public dtMovimentacao: DataSource;
   public formAgroupMovimentacao: FormGroup;
   public controls: { [key: string]: AbstractControl; };

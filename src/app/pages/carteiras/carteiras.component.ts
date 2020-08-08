@@ -9,6 +9,7 @@ import { BreadCrumbItem, Carteira } from '../../classes';
 })
 export class CarteirasComponent implements OnInit {
 
+  public loading: boolean = false;
   public formAgroupCarteira: FormGroup;
   public controls: { [key: string]: AbstractControl; };
   public Title: string = 'Cadastro de carteiras';
@@ -56,7 +57,7 @@ export class CarteirasComponent implements OnInit {
     this.FormBuilderCarteira();
     this.controls = this.formAgroupCarteira.controls;
 
-    this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento', InseridoEm:new Date, Ativo: true })
+    this.PreencherCampos({ Codigo: 1, Nome: 'teste de preenchimento', InseridoEm: new Date, Ativo: true })
   }
 
 }
