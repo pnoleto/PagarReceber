@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadCrumbItem } from '../../classes';
+import { formatPercent } from '@angular/common';
+import { BreadCrumbItem, movimentacoesPeriodo } from '../../classes';
+import { MovimentacoesAPIService } from '../../services';
 
-export class MaleAgeStructure {
-  state: string;
-  young: number;
-  middle: number;
-  older: number;
-}
-
-export class PopulationByRegion {
-  region: string;
+export class Population {
+  arg: number;
   val: number;
 }
 
@@ -27,63 +22,60 @@ export class MovimentacoesComponent implements OnInit {
     { nome: 'Movimentações', Ativo: true }
   ]
 
-  customizeTooltip(arg: any) {
+  constructor(
+    private movimentacoesApi: MovimentacoesAPIService
+  ) { }
+
+  public customizeTooltip(arg: any): { text: string } {
     return {
-      text: arg.seriesName + ' years: ' + arg.valueText
+      text: `${arg.valueText} - ${formatPercent(arg.percent, "en-US")}`
     };
   }
 
-  maleAgeData: MaleAgeStructure[] = [{
-    state: "2019",
-    young: 6.7,
-    middle: 28.6,
-    older: 5.1
-  }, {
-    state: "2020",
-    young: 9.6,
-    middle: 43.4,
-    older: 9
-  }, {
-    state: "2021",
-    young: 13.5,
-    middle: 49,
-    older: 5.8
-  }, {
-    state: "2022",
-    young: 30,
-    middle: 90.3,
-    older: 14.5
-  }];
+  public ObtemMovimentacoesDoPeriodo() {
 
-  populationByRegions: PopulationByRegion[] = [{
-    region: "Casa",
-    val: 4119626293
-  }, {
-    region: "Carro",
-    val: 1012956064
-  }, {
-    region: "Lazer",
-    val: 344124520
-  }, {
-    region: "Viagens",
-    val: 590946440
-  }, {
-    region: "Conta de luz",
-    val: 727082222
-  }, {
-    region: "Internet",
-    val: 35104756
-  }];
-
-  customizeTooltip1(arg: any) {
-    return {
-      text: arg.valueText + " - " + arg.percent
-    };
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
+
+  populationData: Population[] = [
+    {
+      arg: 1970,
+      val: 3691172616
+    }, {
+      arg: 1980,
+      val: 4449048798
+    }, {
+      arg: 1990,
+      val: 5320816667
+    }, {
+      arg: 2000,
+      val: 6127700428
+    }, {
+      arg: 2010,
+      val: 6916183482
+    }];
+
+  populationByRegions: movimentacoesPeriodo[] = [
+    {
+      agrupamento: "Casa",
+      valor: 1500.00
+    }, {
+      agrupamento: "Carro",
+      valor: 270.00
+    }, {
+      agrupamento: "Lazer",
+      valor: 1000.00
+    }, {
+      agrupamento: "Viagens",
+      valor: 800.00
+    }, {
+      agrupamento: "Conta de luz",
+      valor: 150.00
+    }, {
+      agrupamento: "Internet",
+      valor: 120.00
+    }];
 
 }

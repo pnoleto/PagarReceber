@@ -1,1 +1,1 @@
-export * from './ServiceBaseCrudApi/service-base-crud-api.service';
+export * from './serviceBaseCrudApi/service-base-crud-api.service';

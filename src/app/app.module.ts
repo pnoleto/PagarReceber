@@ -31,8 +31,8 @@ import {
   CanActivateService,
   OauthService
 } from '../app/services';
+
 import { environment } from '../environments/environment';
-import { LoadingComponent } from './pages/components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +46,7 @@ import { LoadingComponent } from './pages/components/loading/loading.component';
     CarteirasComponent,
     DeashboardComponent,
     MovimentosComponent,
-    MovimentacoesComponent,
-    LoadingComponent
+    MovimentacoesComponent
   ],
   imports: [
     BrowserModule,

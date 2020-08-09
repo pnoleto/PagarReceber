@@ -4,3 +4,4 @@ export * from './icarteira-api';
 export * from './icrud-api';
 export * from './imovimentos-api';
 export * from './ioauth';
+export * from './imovimentacoes-api';

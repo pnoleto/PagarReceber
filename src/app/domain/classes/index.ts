@@ -5,3 +5,5 @@ export * from './base/base';
 export * from './userInfo/user-info';
 export * from './baseDTO/base-dto';
 export * from './basePagination/base-pagination';
+export * from './movimentacoes/movimentacoes';
+export * from './movimentacoesDoPeriodoFiltro/movimentacoes-do-periodo-filtro';

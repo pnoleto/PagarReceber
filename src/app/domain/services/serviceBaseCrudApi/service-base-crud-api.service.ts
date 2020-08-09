@@ -4,8 +4,8 @@ import { ICrudApi, IBaseApi } from '../../interfaces';
 import { HttpClient } from '@angular/common/http';
 import { BaseDTO, EntityBase, BasePagination } from '../../classes';
 import { retry, timeout, catchError } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { ParamsHelper } from '../../Helpers';
+import { environment } from './../../../../environments/environment';
+import { ParamsHelper } from '../../helpers';
 
 @Injectable({
     providedIn: 'root'

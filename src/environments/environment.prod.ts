@@ -2,8 +2,8 @@ export const environment = {
   production: true,
   EndPoints: {
     Movimentos: 'HTTP://LOCALHOST:4444',
-    Agrupamentos: 'HTTP://LOCALHOST:4444'
-    , Carteiras: 'HTTP://LOCALHOST:4444',
+    Agrupamentos: 'HTTP://LOCALHOST:4444',
+    Carteiras: 'HTTP://LOCALHOST:4444',
     Movimentacoes: 'HTTP://LOCALHOST:4444'
   },
   RequestOptions: {
