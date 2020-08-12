@@ -11,7 +11,7 @@ export class ParamsHelper {
         });
 
         if (Entidade.skip)
-            params.append("Skip", Entidade.skip.toString());
+            params.append("skip", Entidade.skip.toString());
 
         if (Entidade.take)
             params.append("take", Entidade.take.toString());
