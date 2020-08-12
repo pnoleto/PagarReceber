@@ -6,8 +6,6 @@ export * from './agrupamentos/agrupamentos.component';
 //export * from '../pages/agrupamentos/agrupamentos.component.spec';
 export * from  './carteiras/carteiras.component';
 //export * from  './carteiras/carteiras.component.spec';
-export * from './dashboard/deashboard/deashboard.component';
-//export * from './Dashboard/deashboard/deashboard.component.spec';
 export * from './movimentos/movimentos.component';
 //export * from './movimentacoes/movimentacoes.component.spec';
 export * from './movimentacoes/movimentacoes.component';

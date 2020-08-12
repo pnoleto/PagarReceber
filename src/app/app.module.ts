@@ -9,11 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {
   HomeComponent, LoginComponent,
-  MenuComponent, AgrupamentosComponent,
-  BreadcrumbComponent, PageTitleComponent,
-  CarteirasComponent, DeashboardComponent,
-  MovimentosComponent,
-  MovimentacoesComponent
+  AgrupamentosComponent, BreadcrumbComponent,
+  PageTitleComponent, CarteirasComponent,
+  MovimentosComponent, MovimentacoesComponent,
+  LoadingComponent
 } from './pages';
 
 import {
@@ -32,6 +31,8 @@ import {
   OauthService
 } from '../app/services';
 
+import { MenuComponent } from './components';
+
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -44,9 +45,9 @@ import { environment } from '../environments/environment';
     BreadcrumbComponent,
     PageTitleComponent,
     CarteirasComponent,
-    DeashboardComponent,
     MovimentosComponent,
-    MovimentacoesComponent
+    MovimentacoesComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

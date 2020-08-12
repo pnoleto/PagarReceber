@@ -8,6 +8,11 @@ export class Population {
   val: number;
 }
 
+export class TooltipValue {
+  valueText: string;
+  percent: number;
+}
+
 @Component({
   selector: 'app-movimentacoes',
   templateUrl: './movimentacoes.component.html',
@@ -26,7 +31,7 @@ export class MovimentacoesComponent implements OnInit {
     private movimentacoesApi: MovimentacoesAPIService
   ) { }
 
-  public customizeTooltip(arg: any): { text: string } {
+  public customizeTooltip(arg: TooltipValue): { text: string } {
     return {
       text: `${arg.valueText} - ${formatPercent(arg.percent, "en-US")}`
     };

@@ -5,6 +5,12 @@
     <div class="m-5 p-5">
         <form [formGroup]="formAgroupMovimentacao" (ngSubmit)="OnSubmit()">
 
+            <div class="form-group col-md-4">
+                <label for="inputCodigo">Código:</label>
+                <dx-text-box formControlName="Codigo" [readOnly]="true" placeholder="" readonly>
+                </dx-text-box>
+            </div>
+
             <div class="form-group col-5">
                 <label for="inputAgrupamento">Agrupamento:</label>
                 <dx-drop-down-box [class.is-invalid]="true" formControlName="CodAgrupamento"
